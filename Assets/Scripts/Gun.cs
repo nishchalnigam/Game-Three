@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
-    public float damage = 10f;
+    public int damage = 1;
     public float range = 100f;
     public AudioSource gunShot;
     public AudioSource ricochet;
+    //public static Gun instance = null;
 
     public Camera fps;
 

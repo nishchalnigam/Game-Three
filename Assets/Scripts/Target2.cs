@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Target2 : MonoBehaviour {
-    public float health = 50f;
+    public int health = 4;
     private Animator animator;
     public AudioSource pigDeath;
     public AudioSource pigShot;
@@ -26,7 +26,7 @@ public class Target2 : MonoBehaviour {
 
     void Update()
     {
-        if (health > 0f)
+        if (health > 0)
         {
             ai.destination = targets[targetIndex].position;
             if (Vector3.Distance(transform.position, targets[targetIndex].position) < 1.5)
@@ -41,16 +41,16 @@ public class Target2 : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
-        if (health > 0f)
+        if (health > 0)
         {
             StartCoroutine(Hit());
 
         }
         health -= amount;
 
-        if(health <= 0f)
+        if(health <= 0)
         {
             Die();
             //nextPig.SetActive(true);

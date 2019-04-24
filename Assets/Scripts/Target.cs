@@ -4,16 +4,32 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Target : MonoBehaviour {
-    public float health = 50f;
+    public int health = 4;
     private Animator animator;
     public AudioSource pigDeath;
     public AudioSource pigShot;
+    public static Target instance = null;
 
     public Transform[] targets;
     int targetIndex;
     NavMeshAgent ai;
     public GameObject nextPig;
 
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        //Check if instance already exists
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+    }
     // Use this for initialization
     void Start()
     {
@@ -26,7 +42,7 @@ public class Target : MonoBehaviour {
 
     void Update()
     {
-        if (health > 0f)
+        if (health > 0)
         {
             ai.destination = targets[targetIndex].position;
             if (Vector3.Distance(transform.position, targets[targetIndex].position) < 1.5)
@@ -36,14 +52,16 @@ public class Target : MonoBehaviour {
         }
     }
 
-    void Awake()
+
+    public int getHealth()
     {
-        animator = GetComponent<Animator>();
+        return health;
     }
 
-    public void TakeDamage(float amount)
+
+    public void TakeDamage(int amount)
     {
-        if (health > 0f)
+        if (health > 0)
         {
             StartCoroutine(Hit());
 
