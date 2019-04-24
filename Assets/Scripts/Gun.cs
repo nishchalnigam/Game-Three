@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour {
 
     void Start()
     {
+        
         ricochet = GameObject.Find("Ricochet").GetComponent<AudioSource>();
         gunShot = GameObject.Find("Gunshot").GetComponent<AudioSource>();
     }
@@ -41,9 +42,14 @@ public class Gun : MonoBehaviour {
 
 
             Target target = hit.transform.GetComponent<Target>();
+            Target2 target2 = hit.transform.GetComponent<Target2>();
             if (target != null)
             {
                 target.TakeDamage(damage);
+            }
+            if (target2 != null)
+            {
+                target2.TakeDamage(damage);
             }
         }
     }

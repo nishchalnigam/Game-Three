@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Target : MonoBehaviour {
+public class Target2 : MonoBehaviour {
     public float health = 50f;
     private Animator animator;
     public AudioSource pigDeath;
     public AudioSource pigShot;
+    public GameObject nextPig;
 
     public Transform[] targets;
     int targetIndex;
     NavMeshAgent ai;
-    public GameObject nextPig;
 
     // Use this for initialization
     void Start()
     {
-        //nextPig = GameObject.Find("Pigman2");
+        //nextPig = GameObject.Find("Pigman3");
         ai = gameObject.GetComponent<NavMeshAgent>();
         targetIndex = 0;
         pigShot = GameObject.Find("PigShot").GetComponent<AudioSource>();
@@ -53,7 +53,7 @@ public class Target : MonoBehaviour {
         if(health <= 0f)
         {
             Die();
-            nextPig.SetActive(true);
+            //nextPig.SetActive(true);
         }
     }
 
@@ -68,7 +68,7 @@ public class Target : MonoBehaviour {
         animator.SetBool("Hit", false);
         //animator.SetBool("Walk", true);
     }
-
+    //`trying to update
     void Die()
     {
         animator.SetBool("Die", true);
