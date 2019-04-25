@@ -9,6 +9,7 @@ public class Target2 : MonoBehaviour {
     public AudioSource pigDeath;
     public AudioSource pigShot;
     public GameObject nextPig;
+    public WinMenu winmenu;
 
     public Transform[] targets;
     int targetIndex;
@@ -53,6 +54,7 @@ public class Target2 : MonoBehaviour {
         if(health <= 0)
         {
             Die();
+            winmenu.gameObject.SetActive(true);
             //nextPig.SetActive(true);
         }
     }

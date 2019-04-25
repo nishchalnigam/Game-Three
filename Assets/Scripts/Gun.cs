@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour {
     public AudioSource ricochet;
     //public static Gun instance = null;
 
+
     public Camera fps;
 
     void Start()
