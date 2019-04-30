@@ -2,6 +2,7 @@
 A basic fps game in which user has to shoot pigs to win the game.
 
 Required Elements:
+
 ● Navmesh - 15%
 ○ The enemy pigs chase the player using NavMesh.
 
@@ -12,7 +13,7 @@ Required Elements:
 ○ I have used trains to make the boundary of my level, player cannot go beyond that.
 ○ Skybox was added.
 
-● Mechanics (I will explain this in class) - 30%
+● Mechanics - 30%
 ○ Player must shoot and kill both the pigs using the gun.
 ○ In case the player misses the pig and hits something else, a ricochet sound can be heard.
 ○ Pigs walk towards the player using walk animation, and react to gun shots.
